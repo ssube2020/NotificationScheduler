@@ -9,7 +9,7 @@ using NotificationScheduler.Application.Services;
 using NotificationScheduler.Controllers;
 using Infrastructure.Repositories;
 
-namespace Tests.Repositories
+namespace Tests.EndpointTests
 {
     [TestFixture]
     public class EmailNotificationsControllerTests

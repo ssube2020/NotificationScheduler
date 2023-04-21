@@ -11,7 +11,7 @@ using NotificationScheduler.Application.Services;
 namespace NotificationScheduler.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[Action]")]
     public class EmailNotificationsController
     {
         private readonly ApplicationDbContext _context;
@@ -29,7 +29,7 @@ namespace NotificationScheduler.Controllers
             return await _emailService.GetNotificationsAsync();
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<ResultOfExecution<INotification>> GetNotificationById(int id)
         {
             return await _emailService.GetNotificationByIdAsync(id);
@@ -41,7 +41,7 @@ namespace NotificationScheduler.Controllers
             return await _emailService.AddNotificationAsync(notification);
         }
 
-        [HttpPost]
+        [HttpPut]
         public async Task<ActionResult<ResultOfExecution<INotification>>> UpdateNotification(EmailNotification notification)
         {
             return await _emailService.UpdateNotificationAsync(notification);
